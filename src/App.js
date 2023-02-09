@@ -1,22 +1,33 @@
 
 import './App.css';
-import React,{Component} from "react";
+import React, { Component } from "react";
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
 
     console.log("Constructor");
     super(props);
     this.state = {
-      favoritecolor : "red"
+      favoritecolor: "red"
     }
   }
 
-  componentWillMount = () => {  // Artık kullanılan ve tavsiye edilen bir yöntem degil...
-    console.log("Selam")
+  componentWillMount = () => {  // Artık kullanılan ve tavsiye edilen bir yöntem degil, render den önce çalişir...
+    console.log("WillMount")
+  };
+
+  componentDidMount() {
+    console.log("DidMount");  // render den sonra calısır ve setTimeout ile zaman belirterek otomatik render yapabilmekteyiz örnek aşagıda.
+
+    setTimeout(() => {
+      this.setState({
+        favoritecolor: "blue"
+      })
+    },2000
+    )
   }
-  
+
 
   render() {
 
