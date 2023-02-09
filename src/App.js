@@ -5,32 +5,21 @@ import Child from './Child';
 
 class App extends Component {
 
-  constructor(props) {
-
-    console.log("Constructor");
-    super(props);
-    this.state = {
-      favoritecolor: "red"
-    }
+  state = {
+    tl: 0
   }
 
-
-
-  componentWillMount = () => {  // Artık kullanılan ve tavsiye edilen bir yöntem degil, render den önce çalişir...
-    console.log("WillMount")
-  };
-
-  componentDidMount() {
-    console.log("DidMount");  // render den sonra calısır ve setTimeout ile zaman belirterek otomatik render yapabilmekteyiz örnek aşagıda.
-
-  }
-
-  onClick = () =>{
+  change = (e) =>{
     this.setState({
-      favoritecolor:"Green"
-    });
+    tl:e.target.value
+    })
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    console.log("shouldComponentUpdate",nextProps,nextState);
+    return (nextState.tl % 10 ) === 0;
+  }
+  
 
   render() {
 
@@ -39,10 +28,14 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1>My favorite color is {this.state.favoritecolor} </h1>
+        <input name='tl' id='tl' onChange={this.change} placeholder='Lütfen bir deger giriniz' />
+        <br />
+        <br />
 
-        <Child renk={this.state.favoritecolor} />
-        <button onClick={this.onClick} >Change Color</button>
+        <h2> Portakal Fiyati 10 tl</h2>
+        <h1> {this.state.tl  / 10} kg portakal alabilirsiniz </h1>
+
+
 
       </div>
     );
