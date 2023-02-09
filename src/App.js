@@ -1,6 +1,7 @@
 
 import './App.css';
 import React, { Component } from "react";
+import Child from './Child';
 
 class App extends Component {
 
@@ -20,12 +21,6 @@ class App extends Component {
   componentDidMount() {
     console.log("DidMount");  // render den sonra calısır ve setTimeout ile zaman belirterek otomatik render yapabilmekteyiz örnek aşagıda.
 
-    setTimeout(() => {
-      this.setState({
-        favoritecolor: "blue"
-      })
-    },2000
-    )
   }
 
 
@@ -37,6 +32,8 @@ class App extends Component {
       <div className="App">
 
         <h1>My favorite color is {this.state.favoritecolor} </h1>
+
+        <Child/>
 
       </div>
     );
