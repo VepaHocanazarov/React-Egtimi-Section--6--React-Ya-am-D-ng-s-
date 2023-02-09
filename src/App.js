@@ -5,13 +5,22 @@ import React,{Component} from "react";
 class App extends Component {
 
   constructor(props){
+
+    console.log("Constructor");
     super(props);
     this.state = {
       favoritecolor : "red"
     }
   }
 
+  componentWillMount = () => {  // Artık kullanılan ve tavsiye edilen bir yöntem degil...
+    console.log("Selam")
+  }
+  
+
   render() {
+
+    console.log("Render calişti")
 
     return (
       <div className="App">
