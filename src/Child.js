@@ -8,6 +8,12 @@ class Child extends Component {
         super(props);
     }
 
+    componentWillReceiveProps(){
+
+        console.log("componentWillReceiveProps");   // Child componentine gelen props tetiklendigi anda bu componentWillReceiveProps çalısır.
+
+    }
+
     componentWillMount = () => {  
         console.log("Child WillMount")
     };
@@ -18,6 +24,7 @@ class Child extends Component {
     }
 
     render() {
+        console.log("Child Render")
         return (
             <div>
                 Child
