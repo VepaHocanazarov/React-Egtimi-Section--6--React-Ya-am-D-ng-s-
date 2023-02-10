@@ -22,7 +22,12 @@ class App extends Component {
 
   componentWillUpdate(nextProps, nextState){
      console.log("componentWillUpdate",nextProps,nextState);  // shouldComponentUpdate'den sonra calışır
-  }
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log("componentDisUpdate",prevProps,prevState);   // renderden sonra çalısır ve birönceki state degerini basıyor.
+  };
+  
   
 
   render() {
