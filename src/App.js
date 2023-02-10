@@ -17,7 +17,11 @@ class App extends Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     console.log("shouldComponentUpdate",nextProps,nextState);
-    return (nextState.tl % 10 ) === 0;
+    return (nextState.tl % 10 ) === 0;  
+  }
+
+  componentWillUpdate(nextProps, nextState){
+     console.log("componentWillUpdate",nextProps,nextState);  // shouldComponentUpdate'den sonra calışır
   }
   
 
